@@ -182,14 +182,11 @@ export const MobileNavToggle = ({
   );
 
 export const NavbarLogo = () => (
-  <a href="#" className="flex items-center space-x-2 px-2 py-1 text-sm font-bold">
-    <img
-      src="https://assets.aceternity.com/logo-dark.png"
-      alt="logo"
-      width={30}
-      height={30}
-    />
-    <span className="text-black dark:text-white">MyPortfolio</span>
+  <a href="/" className="flex items-center space-x-2 px-2 py-1">
+    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm">
+      AB
+    </div>
+    <span className="text-white font-bold text-sm hidden sm:block">Arnav Bhandari</span>
   </a>
 );
 
@@ -206,23 +203,24 @@ export const NavbarButton = ({
   children: React.ReactNode;
   className?: string;
   variant?: "primary" | "secondary";
-} & (React.ComponentPropsWithoutRef<"a"> | React.ComponentPropsWithoutRef<"button">)) => {
+  [key: string]: any;
+}) => {
   const styles = {
     primary: "bg-purple-600 text-white hover:bg-purple-700",
     secondary: "bg-transparent text-purple-600 hover:text-purple-700",
   };
 
-  return (
-    <Tag
-      href={href}
-      className={cn(
+  return React.createElement(
+    Tag,
+    {
+      href,
+      className: cn(
         "px-4 py-2 rounded-md text-sm font-semibold transition duration-200",
         styles[variant],
         className
-      )}
-      {...props}
-    >
-      {children}
-    </Tag>
+      ),
+      ...props,
+    },
+    children
   );
 };

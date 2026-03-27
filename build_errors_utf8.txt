@@ -1,0 +1,78 @@
+﻿
+> my-fixed-portfolio@0.1.0 build
+> next build
+
+   Γû▓ Next.js 15.3.4
+
+   Creating an optimized production build ...
+npm : Failed to 
+compile.
+At line:1 char:1
++ npm run build 2>&1 | 
+Out-File -Encoding 
+utf8 -FilePath 
+build_errors_u ...
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (Failed to com   
+ pile.:String) [],     
+RemoteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+
+./src/app/page.tsx
+Error:   [31mx[0m 
+`ssr: false` is not 
+allowed with 
+`next/dynamic` in 
+Server Components. 
+Please move it into a 
+client component.
+    ,-[[36;1;4mC:\User
+s\Arnav Bhandari\my-fix
+ed-portfolio\src\app\pa
+ge.tsx[0m:10:1]
+ [2m 7[0m |     
+import { 
+AchievementsTimeline } 
+from "@/components/Achi
+evementsTimeline";
+ [2m 8[0m |     
+import { 
+ContactRevealCard } 
+from "@/components/Cont
+actRevealCard"; // Γ£à 
+Fixed import
+ [2m 9[0m |     
+ [2m10[0m | [35;1m,
+[0m[35;1m-[0m[35;1m>
+[0m const 
+GlobeSection = dynamic(
+ [2m11[0m | 
+[35;1m|[0m     () => 
+import("@/components/Gl
+obeSection").then((mod)
+ => mod.GlobeSection),
+ [2m12[0m | 
+[35;1m|[0m     { 
+ssr: false }
+ [2m13[0m | [35;1m`
+[0m[35;1m-[0m[35;1m>
+[0m );
+ [2m14[0m |     
+ [2m15[0m |     
+ [2m16[0m |     
+export default 
+function Home() {
+    `----
+
+Import trace for 
+requested module:
+./src/app/page.tsx
+
+
+> Build failed because 
+of webpack errors

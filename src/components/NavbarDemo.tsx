@@ -15,10 +15,12 @@ import { useState } from "react";
 
 export function NavbarDemo() {
   const navItems = [
-    { name: "Home", link: "#hero" },
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#contact" },
+    { name: "Home", link: "/" },
+    { name: "Projects", link: "/projects" },
+    { name: "About", link: "/about" },
+    { name: "Skills", link: "/skills" },
+    { name: "Achievements", link: "/achievements" },
+    { name: "Contact", link: "/contact" },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,14 +36,23 @@ export function NavbarDemo() {
             className="text-white"
             onItemClick={() => setIsMobileMenuOpen(false)}
           />
-          <div className="flex items-center gap-4">
-           
+          <div className="flex items-center gap-3">
+            {/* Resume button */}
             <NavbarButton
+              href="/Arnav_Bhandari_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              className="text-white hover:text-purple-400 transition"
+            >
+              Resume
+            </NavbarButton>
+
+            {/* Contact button */}
+            <NavbarButton
+              href="mailto:arnavbhandari1609@gmail.com"
               variant="primary"
               className="bg-purple-600 hover:bg-purple-700 text-white shadow-md"
-              onClick={() =>
-                (window.location.href = "mailto:arnavbhandari1609@gmail.com")
-              }
             >
               Say Hi 👋
             </NavbarButton>
@@ -74,22 +85,18 @@ export function NavbarDemo() {
             ))}
             <div className="flex w-full flex-col gap-4 mt-4">
               <NavbarButton
-                onClick={() => {
-                  window.open("/resume.pdf", "_blank");
-                  setIsMobileMenuOpen(false);
-                }}
+                href="/Arnav_Bhandari_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="primary"
                 className="bg-purple-600 hover:bg-purple-700 text-white w-full"
               >
                 Resume
               </NavbarButton>
               <NavbarButton
+                href="mailto:arnavbhandari1609@gmail.com"
                 variant="primary"
                 className="bg-purple-600 hover:bg-purple-700 text-white w-full"
-                onClick={() => {
-                  window.location.href = "mailto:arnavbhandari1609@gmail.com";
-                  setIsMobileMenuOpen(false);
-                }}
               >
                 Say Hi 👋
               </NavbarButton>
